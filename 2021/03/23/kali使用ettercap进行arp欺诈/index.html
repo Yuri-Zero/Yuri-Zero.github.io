@@ -111,11 +111,11 @@
                 </span>
                 
                 
-                
-                <span id="busuanzi_container_page_pv">
+                <span id="/2021/03/23/kali使用ettercap进行arp欺诈/" class="leancloud_visitors" data-flag-title="kali使用ettercap进行arp欺诈和dns欺诈">
                     <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span id="busuanzi_value_page_pv">0</span>
+                    <span class="leancloud-visitors-count">1000000</span>
                 </span>
+                
                 
             </p>
             
@@ -214,6 +214,8 @@
 
             
             
+            <div id="vcomments"></div>
+            
         </div>
         <div class="sidebar">
             <div class="box animated fadeInRight">
@@ -224,9 +226,9 @@
                     <dl>
                         <dd><a href="https://github.com/Yuri-Zero" target="_blank"><span
                                     class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                        <dd><a href="https://twitter.com/yuri_zero_kill" target="_blank"><span
                                     class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                        <dd><a href="" target="_blank"><span
                                     class=" iconfont icon-stack-overflow"></span></a></dd>
                     </dl>
                 </div>
@@ -460,6 +462,38 @@
   }
 </script>
 
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
+      appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
+      notify: 'false',
+      verify: 'false',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
 
 
 
