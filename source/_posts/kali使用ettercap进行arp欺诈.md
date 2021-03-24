@@ -11,7 +11,7 @@ categories: 网络安全
 ![](example1.png)
 ***
 <br/><b>第二步</b><br/>首先打开kali linux,通过Ctrl+alt+T打开终端，输入以下代码
-```
+``` linux
 ifconfig
 ```
 来查看kali linux的ip地址
