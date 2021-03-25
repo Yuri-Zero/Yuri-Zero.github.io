@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1616657468220">
+  <link rel="stylesheet" href="/css/style.css?v=1616658603931">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -48,9 +48,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>Articles</span>4</div>
-        <div><span>Tags</span>3</div>
-        <div><span>Categories</span>2</div>
+        <div><span>Articles</span>3</div>
+        <div><span>Tags</span>4</div>
+        <div><span>Categories</span>3</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -120,6 +120,13 @@
         
 
         <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
           <a class="category-list-link" href="/categories/杂物/">杂物</a>
           <span class="category-list-count">1</span>
         </li>
@@ -142,7 +149,7 @@
   
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/kali-%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">kali 网络</a> <a href="/tags/%E5%89%8D%E7%AB%AF%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" style="font-size: 10px;">前端，博客建设</a> <a href="/tags/%E6%9D%82%E7%89%A9/" style="font-size: 10px;">杂物</a>
+      <a href="/tags/kali-%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">kali 网络</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" style="font-size: 10px;">博客建设</a> <a href="/tags/%E6%9D%82%E7%89%A9/" style="font-size: 10px;">杂物</a>
     </div>
     
   </div>
@@ -179,50 +186,7 @@
 
         <article>
             
-                <p>本文主要讲一下怎么使用Kali linux中的ettercap在内网中进行arp欺诈和dns欺诈<br><br/>以下为正文</p>
-<hr>
-<p><br/><b>第一步</b><br/>首先准备一个kali linux虚拟机和另外一台虚拟机做靶机，进行设置，将两台虚拟机的网络适配器设置为NAT模式<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example1.png"></p>
-<hr>
-<p><br/><b>第二步</b><br/>首先打开kali linux,通过Ctrl+alt+T打开终端，输入以下代码</p>
-<pre><code class="linux">ifconfig
-</code></pre>
-<p>来查看kali linux的ip地址<br>比如我这里显示的为192.168.190.xxx<br><br/>之后在终端输入如下命令</p>
-<pre><code>sudo mousepad /etc/ettercap/etter.dns
-</code></pre>
-<p><br/>打开了etter.dns文件后,在这个文件的最底端增加两条</p>
-<pre><code>* A &lt;Your Address&gt;
-* PTR &lt;Your Address&gt;
-</code></pre>
-<p>如图所示<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example2.png"><br><br/>之后新建一个html文件，随便写点什么，命名为index.html，把它放入</p>
-<pre><code>var/www/html
-</code></pre>
-<p>文件夹中，并替换掉原有的index.html,替换如果提示权限不够可以使用以下代码来进行替换操作</p>
-<pre><code>sudo cp &lt;想要复制过去的文件名&gt; /var/www/html
-</code></pre>
-<p>之后使用终端输入</p>
-<pre><code>/etc/init.d/apache2 start
-</code></pre>
-<p>来打开服务端<br><br/><br><b>第三步</b><br/>启动靶机，靶机记得同样要使用<b>NAT模式</b></p>
-<hr>
-<p><br/><b>第四步</b><br/>在kali linux中启动ettercap，该软件在kali linux的工具菜单中有一个GUI版本的快捷方式，所以直接在那里启用就好<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example3.png"><br>设置考虑到实验性质，如上设置（通常也是默认设置）就好，设置完成后点击右上角的√按钮，进入下一个界面<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example4.png"><br>设置完后，先点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon1.png">暂停，之后点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon2.png">来查找主机<br><br/>查找完成后，点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon3.png">切换到hosts list</p>
-<hr>
-<p><br/><b>第五步</b><br>在kali linux终端输入</p>
-<pre><code>route
-</code></pre>
-<p>其中出现自己ip的一行中的gateway就是当前内网的网关。之后继续切回到ettercap中，在hosts list中,首先选中<b>内网网关</b>的地址，点击<b>add to target 1</b><br>之后选中<b>靶机ip</b>，点击<b>add to target 2</b> 设置完后，点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon4.png">,选中第一个<b>ARP poisoning</b><br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example5.png"><br/><br>如此设置之后点击ok，此时arp欺诈的设置阶段已经完成,接下来进行dns欺诈设置</p>
-<hr>
-<p><b>第六步</b><br/><br>点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon5.png"></p>
-<pre><code>选择plugins-&gt;manage plugins
-</code></pre>
-<p>进入如下界面<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example6.png"></p>
-<pre><code>选择dns_spoof 右键点击 activate 激活
-</code></pre>
-<p>激活dns_spoof后，点击左上角的<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon6.png">开始攻击操作</p>
-<hr>
-<p><b>第七步</b><br/><br>切换到<b>靶机</b>后使用浏览器进行上网操作，发现打开网页发现所有网址最后都会跳转访问到我们kali虚拟机的ip，显示我们刚才写的html网页的内容<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example7.png"><br><font color =red size =3>注意:如果没有跳转而是显示无法连接，可能是因为使用的是https协议，改为http即可</font></p>
-<hr>
-<p>本文只做实验和学习交流用,不要有任何非分之想，当然这点技术力也达不到非分之想的要求…</p>
-
+                <p>本文主要讲一下怎么使用Kali linux中的ettercap在内网中进行arp欺诈和dns欺诈<br><br/></p>
             
         </article>
     </div>
@@ -250,7 +214,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1616657468221"></script>
+<script src="/js/app.js?v=1616658603931"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

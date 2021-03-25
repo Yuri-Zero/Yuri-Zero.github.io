@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1616657468222">
+  <link rel="stylesheet" href="/css/style.css?v=1616658603933">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -48,9 +48,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>Articles</span>4</div>
-        <div><span>Tags</span>3</div>
-        <div><span>Categories</span>2</div>
+        <div><span>Articles</span>3</div>
+        <div><span>Tags</span>4</div>
+        <div><span>Categories</span>3</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -120,6 +120,13 @@
         
 
         <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
           <a class="category-list-link" href="/categories/杂物/">杂物</a>
           <span class="category-list-count">1</span>
         </li>
@@ -142,7 +149,7 @@
   
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/kali-%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">kali 网络</a> <a href="/tags/%E5%89%8D%E7%AB%AF%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" style="font-size: 10px;">前端，博客建设</a> <a href="/tags/%E6%9D%82%E7%89%A9/" style="font-size: 10px;">杂物</a>
+      <a href="/tags/kali-%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">kali 网络</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" style="font-size: 10px;">博客建设</a> <a href="/tags/%E6%9D%82%E7%89%A9/" style="font-size: 10px;">杂物</a>
     </div>
     
   </div>
@@ -179,70 +186,7 @@
 
         <article>
             
-                <p>昨天我通过github+hexo搭建了这个个人博客,一开始使用的是@<a target="_blank" rel="noopener" href="https://github.com/TriDiamond">TriDiamond</a>大佬的<a target="_blank" rel="noopener" href="https://github.com/TriDiamond/hexo-theme-obsidian">obsidian</a><br>主题,不过在使用了一天之后，发现这个主题模板不大适合我的个人审美…(但主题本身非常优秀，科技感十足，建议喜欢科技风的各位去看看)于是我今天早上将博客主题换成了@<a target="_blank" rel="noopener" href="https://github.com/nexmoe">折影轻梦</a>大佬的<a target="_blank" rel="noopener" href="https://github.com/theme-nexmoe/hexo-theme-nexmoe">nexmoe</a>主题</p>
-<hr>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2021/03/24/%E5%A6%82%E4%BD%95%E4%B8%BAhexo%E7%9A%84nexmoe%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E6%8F%90%E7%A4%BA/example1.png" alt="obsidian主题展示" class="lazyload"><br><img data-fancybox="gallery" data-sizes="auto" data-src="/2021/03/24/%E5%A6%82%E4%BD%95%E4%B8%BAhexo%E7%9A%84nexmoe%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E6%8F%90%E7%A4%BA/example2.png" alt="nexmoe主题展示" class="lazyload"></p>
-<hr>
-<p>但是在obsidian主题中，有一个可以显示文章被点击阅读的次数的功能，而在nexmoe中却没有这个功能，由于我对该功能比较喜欢，所以我决定手动把这个功能添加进去,以下是添加步骤</p>
-<hr>
-<p><font color="red">注：本文使用的统计插件为不蒜子(busuanzi)，这是它的网址→<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/">不蒜子</a><br></font><br/><br><b>第一步</b><br><br/>打开/node_modules/hexo-theme-nexmoe/layout/_partial/_post/meta.ejs<br><br/>在开头添加如下代码</p>
-<pre><code class="css">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt; &lt;/script&gt;
-</code></pre>
-<p>随后在&lt;/div&gt;标签的上面，添加如下代码:</p>
-<pre><code class="css">&lt;a&gt;&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;
-         本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次
-       &lt;/span&gt;&lt;/a&gt;
-</code></pre>
-<p>保存，在终端中输入<code>hexo s</code>并在本地进行浏览查看效果<br><img src="/2021/03/24/%E5%A6%82%E4%BD%95%E4%B8%BAhexo%E7%9A%84nexmoe%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E6%8F%90%E7%A4%BA/example3.png"><br>成功添加了阅读量提示功能。</p>
-<hr>
-<p><b>第二步,为统计功能增加一个开关</b><br>有时候，我们可能忽然改变主意，想要将这个统计功能关闭，其实这也很简单,我们只需要把刚才添加的代码改一下</p>
-<pre><code class="html">   &lt;% if (theme.busuanzi&amp;&amp;theme.busuanzi.enable) &#123; %&gt; &lt;a&gt;&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;
-         本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次
-       &lt;/span&gt;&lt;/a&gt;
-        &lt;% &#125; %&gt;
-</code></pre>
-<p>全部代码如图所示<br><img data-fancybox="gallery" data-sizes="auto" data-src="/2021/03/24/%E5%A6%82%E4%BD%95%E4%B8%BAhexo%E7%9A%84nexmoe%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E6%8F%90%E7%A4%BA/code1.png" alt="全部代码" class="lazyload"><br>之后打开<b>Hexo根目录</b>下的_config.nexmoe.yml文件<br>“<a target="_blank" rel="noopener" href="https://docs.nexmoe.com/hexo-nexmoe/zhu-ti-pei-zhi">关于为什么是在hexo根目录下而不是主题根目录下可见此</a>“<br>添加如下代码</p>
-<pre><code>busuanzi:
- enable: true
-</code></pre>
-<p>即可,我们可以将其修改为<code>enable: false</code>来随时关闭这个统计功能了!</p>
-
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2021/03/24/hello-world/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Hello World" class="lazyload">
-                    <h1>Hello World</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年03月24日</a>
-            <a><i class="nexmoefont icon-areachart"></i>74 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+                <p>昨天我通过github+hexo搭建了这个个人博客,一开始使用的是@<a target="_blank" rel="noopener" href="https://github.com/TriDiamond">TriDiamond</a>大佬的<a target="_blank" rel="noopener" href="https://github.com/TriDiamond/hexo-theme-obsidian">obsidian</a><br>主题,不过在使用了一天之后，发现这个主题模板不大适合我的个人审美…(但主题本身非常优秀，科技感十足，建议喜欢科技风的各位去看看)于是我今天早上将博客主题换成了@<a target="_blank" rel="noopener" href="https://github.com/nexmoe">折影轻梦</a>大佬的<a target="_blank" rel="noopener" href="https://github.com/theme-nexmoe/hexo-theme-nexmoe">nexmoe</a>主题<br><br/>但是在obsidian主题中，有一个可以显示文章被点击阅读的次数的功能，而在nexmoe中却没有这个功能，由于我对该功能比较喜欢，所以我决定手动把这个功能添加进去。</p>
             
         </article>
     </div>
@@ -265,50 +209,7 @@
 
         <article>
             
-                <p>本文主要讲一下怎么使用Kali linux中的ettercap在内网中进行arp欺诈和dns欺诈<br><br/>以下为正文</p>
-<hr>
-<p><br/><b>第一步</b><br/>首先准备一个kali linux虚拟机和另外一台虚拟机做靶机，进行设置，将两台虚拟机的网络适配器设置为NAT模式<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example1.png"></p>
-<hr>
-<p><br/><b>第二步</b><br/>首先打开kali linux,通过Ctrl+alt+T打开终端，输入以下代码</p>
-<pre><code class="linux">ifconfig
-</code></pre>
-<p>来查看kali linux的ip地址<br>比如我这里显示的为192.168.190.xxx<br><br/>之后在终端输入如下命令</p>
-<pre><code>sudo mousepad /etc/ettercap/etter.dns
-</code></pre>
-<p><br/>打开了etter.dns文件后,在这个文件的最底端增加两条</p>
-<pre><code>* A &lt;Your Address&gt;
-* PTR &lt;Your Address&gt;
-</code></pre>
-<p>如图所示<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example2.png"><br><br/>之后新建一个html文件，随便写点什么，命名为index.html，把它放入</p>
-<pre><code>var/www/html
-</code></pre>
-<p>文件夹中，并替换掉原有的index.html,替换如果提示权限不够可以使用以下代码来进行替换操作</p>
-<pre><code>sudo cp &lt;想要复制过去的文件名&gt; /var/www/html
-</code></pre>
-<p>之后使用终端输入</p>
-<pre><code>/etc/init.d/apache2 start
-</code></pre>
-<p>来打开服务端<br><br/><br><b>第三步</b><br/>启动靶机，靶机记得同样要使用<b>NAT模式</b></p>
-<hr>
-<p><br/><b>第四步</b><br/>在kali linux中启动ettercap，该软件在kali linux的工具菜单中有一个GUI版本的快捷方式，所以直接在那里启用就好<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example3.png"><br>设置考虑到实验性质，如上设置（通常也是默认设置）就好，设置完成后点击右上角的√按钮，进入下一个界面<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example4.png"><br>设置完后，先点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon1.png">暂停，之后点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon2.png">来查找主机<br><br/>查找完成后，点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon3.png">切换到hosts list</p>
-<hr>
-<p><br/><b>第五步</b><br>在kali linux终端输入</p>
-<pre><code>route
-</code></pre>
-<p>其中出现自己ip的一行中的gateway就是当前内网的网关。之后继续切回到ettercap中，在hosts list中,首先选中<b>内网网关</b>的地址，点击<b>add to target 1</b><br>之后选中<b>靶机ip</b>，点击<b>add to target 2</b> 设置完后，点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon4.png">,选中第一个<b>ARP poisoning</b><br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example5.png"><br/><br>如此设置之后点击ok，此时arp欺诈的设置阶段已经完成,接下来进行dns欺诈设置</p>
-<hr>
-<p><b>第六步</b><br/><br>点击<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon5.png"></p>
-<pre><code>选择plugins-&gt;manage plugins
-</code></pre>
-<p>进入如下界面<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example6.png"></p>
-<pre><code>选择dns_spoof 右键点击 activate 激活
-</code></pre>
-<p>激活dns_spoof后，点击左上角的<img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/icon6.png">开始攻击操作</p>
-<hr>
-<p><b>第七步</b><br/><br>切换到<b>靶机</b>后使用浏览器进行上网操作，发现打开网页发现所有网址最后都会跳转访问到我们kali虚拟机的ip，显示我们刚才写的html网页的内容<br><img src="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/example7.png"><br><font color =red size =3>注意:如果没有跳转而是显示无法连接，可能是因为使用的是https协议，改为http即可</font></p>
-<hr>
-<p>本文只做实验和学习交流用,不要有任何非分之想，当然这点技术力也达不到非分之想的要求…</p>
-
+                <p>本文主要讲一下怎么使用Kali linux中的ettercap在内网中进行arp欺诈和dns欺诈<br><br/></p>
             
         </article>
     </div>
@@ -360,7 +261,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1616657468222"></script>
+<script src="/js/app.js?v=1616658603933"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
