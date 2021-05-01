@@ -5,8 +5,10 @@ tags: kali 网络
 categories: 网络安全
 ---
 本文主要讲一下怎么使用Kali linux中的ettercap在内网中进行arp欺诈和dns欺诈
-<br/>以下为正文
+<br/>
+<!--more-->
 ***
+以下为步骤:
 <br/><b>第一步</b><br/>首先准备一个kali linux虚拟机和另外一台虚拟机做靶机，进行设置，将两台虚拟机的网络适配器设置为NAT模式
 ![](example1.png)
 ***

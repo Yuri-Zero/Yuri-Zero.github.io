@@ -30,9 +30,9 @@ menu:
   回到首页: 
     - /
     - icon-home
-#  文章归档: 
-#    - /archives
-#    - icon-container
+  文章归档: 
+    - /archives
+    - icon-container
   关于博客:
     - /about.html
     - icon-info-circle
@@ -81,7 +81,7 @@ analytics: # 统计系统，目前支持 Google analytics.js 统计、Google Tag
   cnzz_site_id: #<ID>
   tencent_site_id: #<ID>
   la_site_id: #<ID>
-  baidu_site_id: #<ID>
+  baidu_site_id: c2cabe62f14db36fb0801732e9ec77ab
   gtm_container_id: #<ID>
 
 comment: valine # 评论框，目前支持 gitalk,gitment,valine,disqus,disqusjs,changyan,livere,DiscussBot
@@ -100,8 +100,8 @@ gitment:
   clientSecret: 43e99fa852795c9a7b3eb924b2558c64b84bbdeb # GitHub Client Secret
 
 valine: 
-  appId: <API_ID> # leancloud application app id
-  appKey: <API_Key> # leancloud application app key
+  appId: Rxolx4wHOdrpgptOnmMInM8i-gzGzoHsz # leancloud application app id
+  appKey: uMAAHWi5LTgFbly40pQ7mUmH # leancloud application app key
 
 disqus:
   shortname: <shortname> # 你的 Disqus shortname
@@ -144,5 +144,6 @@ widgetLink: #链接组件
   - title: <title>
     img : <img_path>
     link : <url>
-
+busuanzi:
+ enable: true
 sidebar: ''
