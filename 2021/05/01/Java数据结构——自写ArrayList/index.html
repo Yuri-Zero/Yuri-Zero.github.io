@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>Archive - Apocalypse</title>
+  <title>Java数据结构——自写ArrayList - Apocalypse</title>
   <meta charset="UTF-8">
   <meta name="description" content="只不过是鸽子王Yuri-Zero的个人博客">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,19 +12,23 @@
   
 
   <link rel="shortcut icon" href="/img/favicon.png" type="image/png" />
-  <meta name="description" content="只不过是鸽子王Yuri-Zero的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Apocalypse">
-<meta property="og:url" content="http://www.yurizero.top/archives/index.html">
+  <meta name="description" content="在Java中有一个集合(C++中的容器)——ArrayList，效果类似于C++中的std::vector，是一种自动扩容数组。这里我自己写了一个，这篇文章留作备份纪念，在这篇文章的代码里，它这个叫做MyListclass这篇文章包括:一个MyList接口、一个MyListclass类，以及在MyListclass类中实现的一个迭代器的内部类，MyListclass类继承了java.lang.It">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数据结构——自写ArrayList">
+<meta property="og:url" content="http://www.yurizero.top/2021/05/01/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99ArrayList/index.html">
 <meta property="og:site_name" content="Apocalypse">
-<meta property="og:description" content="只不过是鸽子王Yuri-Zero的个人博客">
+<meta property="og:description" content="在Java中有一个集合(C++中的容器)——ArrayList，效果类似于C++中的std::vector，是一种自动扩容数组。这里我自己写了一个，这篇文章留作备份纪念，在这篇文章的代码里，它这个叫做MyListclass这篇文章包括:一个MyList接口、一个MyListclass类，以及在MyListclass类中实现的一个迭代器的内部类，MyListclass类继承了java.lang.It">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-05-01T03:25:07.000Z">
+<meta property="article:modified_time" content="2021-05-01T07:13:27.106Z">
 <meta property="article:author" content="Yuri-Zero">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1619853238059">
+  <link rel="stylesheet" href="/css/style.css?v=1619853238049">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -173,27 +177,26 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <section class="nexmoe-posts">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 56.25473843821076%;"> 
+          <img data-src="https://gitee.com/Zarathos/blog-image-library/raw/9c7842a329a91794bae51ea893b018f816a590c1/QQ%E5%9B%BE%E7%89%8720210403125537.jpg" data-sizes="auto" alt="Java数据结构——自写ArrayList" class="lazyload">
+          <h1>Java数据结构——自写ArrayList</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年05月01日</a>
+    <a><i class="nexmoefont icon-areachart"></i>612 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
     
-    <div class="nexmoe-post">
-        <a href="/2021/05/01/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99ArrayList/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 56.25473843821076%;"> 
-                    <img data-src="https://gitee.com/Zarathos/blog-image-library/raw/9c7842a329a91794bae51ea893b018f816a590c1/QQ%E5%9B%BE%E7%89%8720210403125537.jpg" data-sizes="auto" alt="Java数据结构——自写ArrayList" class="lazyload">
-                    <h1>Java数据结构——自写ArrayList</h1>
-                </div>
-            
-        </a>
+  </div>
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年05月01日</a>
-            <a><i class="nexmoefont icon-areachart"></i>612 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>在Java中有一个集合(C++中的容器)——ArrayList，效果类似于C++中的std::vector，是一种自动扩容数组。<br/><br>这里我自己写了一个，这篇文章留作备份纪念，在这篇文章的代码里，它这个叫做MyListclass<br><br/><br>这篇文章包括:<font color="red">一个MyList接口、一个MyListclass类，以及在MyListclass类中实现的一个迭代器的内部类，MyListclass类继承了java.lang.Iterable接口以实现foreach循环支持,而内部类则主要实现Iterable的Iterator()方法本身</font></p>
+  <article>
+    <p>在Java中有一个集合(C++中的容器)——ArrayList，效果类似于C++中的std::vector，是一种自动扩容数组。<br/><br>这里我自己写了一个，这篇文章留作备份纪念，在这篇文章的代码里，它这个叫做MyListclass<br><br/><br>这篇文章包括:<font color="red">一个MyList接口、一个MyListclass类，以及在MyListclass类中实现的一个迭代器的内部类，MyListclass类继承了java.lang.Iterable接口以实现foreach循环支持,而内部类则主要实现Iterable的Iterator()方法本身</font></p>
 <hr>
 <p>注:所有代码都在Myarraylist包中，且为泛型<br><br/><br>MyList接口:</p>
 <pre><code class="java">public interface MyList&lt;T&gt; &#123;
@@ -307,82 +310,45 @@ public class MyListclass&lt;AnyType&gt;implements MyList&lt;AnyType&gt;,java.lan
 &#125;
 </code></pre>
 
-            
-        </article>
-    </div>
+  </article>
+
+  
     
-    <div class="nexmoe-post">
-        <a href="/2021/03/24/%E5%A6%82%E4%BD%95%E4%B8%BAhexo%E7%9A%84nexmoe%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E6%8F%90%E7%A4%BA/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 56.25473843821076%;"> 
-                    <img data-src="https://gitee.com/Zarathos/blog-image-library/raw/master/d670231da37d8a1cde12cce5342682a546a66ed4.jpg@1320w_742h.webp" data-sizes="auto" alt="如何为hexo的nexmoe主题增加文章阅读量提示" class="lazyload">
-                    <h1>如何为hexo的nexmoe主题增加文章阅读量提示</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年03月24日</a>
-            <a><i class="nexmoefont icon-areachart"></i>472 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>昨天我通过github+hexo搭建了这个个人博客,一开始使用的是@<a target="_blank" rel="noopener" href="https://github.com/TriDiamond">TriDiamond</a>大佬的<a target="_blank" rel="noopener" href="https://github.com/TriDiamond/hexo-theme-obsidian">obsidian</a><br>主题,不过在使用了一天之后，发现这个主题模板不大适合我的个人审美…(但主题本身非常优秀，科技感十足，建议喜欢科技风的各位去看看)于是我今天早上将博客主题换成了@<a target="_blank" rel="noopener" href="https://github.com/nexmoe">折影轻梦</a>大佬的<a target="_blank" rel="noopener" href="https://github.com/theme-nexmoe/hexo-theme-nexmoe">nexmoe</a>主题<br><br/>但是在obsidian主题中，有一个可以显示文章被点击阅读的次数的功能，而在nexmoe中却没有这个功能，由于我对该功能比较喜欢，所以我决定手动把这个功能添加进去。</p>
-            
-        </article>
-    </div>
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>Yuri-Zero<br>
+    <strong>Link：</strong><a href="http://www.yurizero.top/2021/05/01/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99ArrayList/" title="http:&#x2F;&#x2F;www.yurizero.top&#x2F;2021&#x2F;05&#x2F;01&#x2F;Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99ArrayList&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;www.yurizero.top&#x2F;2021&#x2F;05&#x2F;01&#x2F;Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99ArrayList&#x2F;</a><br>
     
-    <div class="nexmoe-post">
-        <a href="/2021/03/23/kali%E4%BD%BF%E7%94%A8ettercap%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E8%AF%88/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="kali使用ettercap进行arp欺诈和dns欺诈" class="lazyload">
-                    <h1>kali使用ettercap进行arp欺诈和dns欺诈</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年03月23日</a>
-            <a><i class="nexmoefont icon-areachart"></i>702 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>本文主要讲一下怎么使用Kali linux中的ettercap在内网中进行arp欺诈和dns欺诈<br><br/></p>
-            
-        </article>
-    </div>
+      本文由Yuri-Zero发布
     
-    <div class="nexmoe-post">
-        <a href="/2021/03/23/testpage/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="我的第一篇文章" class="lazyload">
-                    <h1>我的第一篇文章</h1>
-                </div>
-            
-        </a>
+  </div>
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年03月23日</a>
-            <a><i class="nexmoefont icon-areachart"></i>55 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
 
-        <article>
-            
-                <p><em>这是我自己发布的第一篇博客文章，接下来我会使用这个博客文章记录我的学习&amp;编程生活，分享一些编程心得，和一些说唱乐</em><br></br><b>hexo真棒</p>
-
-            
-        </article>
-    </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Java/" rel="tag">Java</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'Rxolx4wHOdrpgptOnmMInM8i-gzGzoHsz',
+        appKey: 'uMAAHWi5LTgFbly40pQ7mUmH'
+    })
+</script>
 </section>
-
+  </div>
+</div>
         <div class="nexmoe-post-right">
           <div class="nexmoe-fixed">
             <div class="nexmoe-tool">
@@ -404,7 +370,7 @@ public class MyListclass&lt;AnyType&gt;implements MyList&lt;AnyType&gt;,java.lan
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1619853238060"></script>
+<script src="/js/app.js?v=1619853238050"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
