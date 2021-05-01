@@ -20,7 +20,7 @@
 <meta property="og:description" content="在Java中有一个集合(C++中的容器)——ArrayList，效果类似于C++中的std::vector，是一种自动扩容数组。这里我自己写了一个，这篇文章留作备份纪念，在这篇文章的代码里，它这个叫做MyListclass这篇文章包括:一个MyList接口、一个MyListclass类，以及在MyListclass类中实现的一个迭代器的内部类，MyListclass类继承了java.lang.It">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-01T03:25:07.000Z">
-<meta property="article:modified_time" content="2021-05-01T07:33:20.465Z">
+<meta property="article:modified_time" content="2021-05-01T07:41:01.686Z">
 <meta property="article:author" content="Yuri-Zero">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="数据结构">
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1619854557800">
+  <link rel="stylesheet" href="/css/style.css?v=1619854926619">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -187,7 +187,7 @@
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年05月01日</a>
-    <a><i class="nexmoefont icon-areachart"></i>608 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>612 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
@@ -201,10 +201,8 @@
 <p>注:所有代码都在Myarraylist包中，且为泛型</p>
 <hr>
 <span id="more"></span>
-<br/>
-MyList接口:
-```java
-public interface MyList<T> {
+<p>MyList接口:</p>
+<pre><code class="java">public interface MyList&lt;T&gt; &#123;
     public void add(int idx,T data);//指定位置插入
     public boolean add(T data);//插入到最末
     public boolean IsEmpty();//判定是否为空
@@ -213,108 +211,107 @@ public interface MyList<T> {
     public T  set(int i,T data);//改
     public T remove(int i);//删
     public int getLength();//得到当前元素数量
-}
-```
-MyListclass类:
-```java
-import java.util.*;
+&#125;
+</code></pre>
+<p>MyListclass类:</p>
+<pre><code class="java">import java.util.*;
 //继承MyList接口来实现线性相关方法，继承java.lang.Iterable来实现迭代器和支持foreach
-public class MyListclass<AnyType>implements MyList<AnyType>,java.lang.Iterable<AnyType> {
+public class MyListclass&lt;AnyType&gt;implements MyList&lt;AnyType&gt;,java.lang.Iterable&lt;AnyType&gt; &#123;
     private AnyType[] elems;//元素
     private int Length = 0;//初始长度
     private static final int Default_Capacity = 10;//默认扩容10
 
-<pre><code>public MyListclass() &#123;
-    doClear();
-&#125;//构造器
+    public MyListclass() &#123;
+        doClear();
+    &#125;//构造器
 
-public boolean add(AnyType x) &#123;//在最末插入指定元素
-    add(getLength(), x);//实际调用在指定位置插入
-    return true;
-&#125;
-
-public void add(int index, AnyType x) &#123;//指定位置插入
-    if (elems.length == getLength()) &#123;
-        ensureCapacity(getLength() * 2 + 1);
+    public boolean add(AnyType x) &#123;//在最末插入指定元素
+        add(getLength(), x);//实际调用在指定位置插入
+        return true;
     &#125;
-    for (int i = Length; i &gt; index; i--) &#123;
-        elems[i] = elems[i - 1];
-    &#125;
-    elems[index] = x;
-    Length++;
-&#125;
 
-public AnyType get(int idx) &#123;//得到指定下标的元素
-    if (IsEmpty() || idx &gt;= getLength())//判定是否为空或超界
-    &#123;
-        throw new ArrayIndexOutOfBoundsException();
-    &#125;
-    return elems[idx];
-&#125;
-
-public boolean IsEmpty() &#123;
-    return Length == 0;
-&#125;//判定是否为空
-
-public void ClearList() &#123;
-    doClear();
-&#125;
-
-private void doClear() &#123;
-    Length = 0;//已用长度置为0
-    ensureCapacity(Default_Capacity);//初始扩容为10
-&#125;
-
-public int getLength() &#123;
-    return Length;
-&#125;//返回元素个数
-
-public void ensureCapacity(int newCapacity) &#123;//扩容
-    if (newCapacity &lt; Length)//检查是否需要扩容
-        return;
-    AnyType[] old = elems;
-    elems = (AnyType[]) new Object[newCapacity];
-    for (int i = 0; i &lt; Length; i++) &#123;
-        elems[i] = old[i];
-    &#125;
-&#125;
-
-public AnyType set(int idx, AnyType data) &#123;//在指定位置设置元素
-    if (IsEmpty() || idx &gt;= getLength()) &#123;
-        throw new ArrayIndexOutOfBoundsException();
-    &#125;
-    AnyType old = elems[idx];
-    elems[idx] = data;
-    return old;
-&#125;
-
-public AnyType remove(int idx) &#123;//删除指定位置元素
-    AnyType Removedelems = elems[idx];
-    for (int i = idx; i &lt; getLength(); i++) &#123;
-        elems[i] = elems[i + 1];
-    &#125;
-    Length--;
-    return Removedelems;
-&#125;
-public Iterator&lt;AnyType&gt; iterator()&#123;//内部类用来实现迭代器和支持foreach
-    class iter implements Iterator&lt;AnyType&gt;&#123;//继承Iterator&lt;E&gt;接口，重写hasNext和next方法
-        private int current=0;
-        public boolean hasNext()&#123;
-            return current&lt;getLength();
+    public void add(int index, AnyType x) &#123;//指定位置插入
+        if (elems.length == getLength()) &#123;
+            ensureCapacity(getLength() * 2 + 1);
         &#125;
-        public AnyType next()&#123;
-            if(!hasNext())
-                throw new java.util.NoSuchElementException();
-            return elems[current++];
+        for (int i = Length; i &gt; index; i--) &#123;
+            elems[i] = elems[i - 1];
         &#125;
-        public void remove()&#123;
-            MyListclass.this.remove(--current);
+        elems[index] = x;
+        Length++;
+    &#125;
+
+    public AnyType get(int idx) &#123;//得到指定下标的元素
+        if (IsEmpty() || idx &gt;= getLength())//判定是否为空或超界
+        &#123;
+            throw new ArrayIndexOutOfBoundsException();
+        &#125;
+        return elems[idx];
+    &#125;
+
+    public boolean IsEmpty() &#123;
+        return Length == 0;
+    &#125;//判定是否为空
+
+    public void ClearList() &#123;
+        doClear();
+    &#125;
+
+    private void doClear() &#123;
+        Length = 0;//已用长度置为0
+        ensureCapacity(Default_Capacity);//初始扩容为10
+    &#125;
+
+    public int getLength() &#123;
+        return Length;
+    &#125;//返回元素个数
+
+    public void ensureCapacity(int newCapacity) &#123;//扩容
+        if (newCapacity &lt; Length)//检查是否需要扩容
+            return;
+        AnyType[] old = elems;
+        elems = (AnyType[]) new Object[newCapacity];
+        for (int i = 0; i &lt; Length; i++) &#123;
+            elems[i] = old[i];
         &#125;
     &#125;
-    return new iter();
-&#125;
+
+    public AnyType set(int idx, AnyType data) &#123;//在指定位置设置元素
+        if (IsEmpty() || idx &gt;= getLength()) &#123;
+            throw new ArrayIndexOutOfBoundsException();
+        &#125;
+        AnyType old = elems[idx];
+        elems[idx] = data;
+        return old;
+    &#125;
+
+    public AnyType remove(int idx) &#123;//删除指定位置元素
+        AnyType Removedelems = elems[idx];
+        for (int i = idx; i &lt; getLength(); i++) &#123;
+            elems[i] = elems[i + 1];
+        &#125;
+        Length--;
+        return Removedelems;
+    &#125;
+    public Iterator&lt;AnyType&gt; iterator()&#123;//内部类用来实现迭代器和支持foreach
+        class iter implements Iterator&lt;AnyType&gt;&#123;//继承Iterator&lt;E&gt;接口，重写hasNext和next方法
+            private int current=0;
+            public boolean hasNext()&#123;
+                return current&lt;getLength();
+            &#125;
+            public AnyType next()&#123;
+                if(!hasNext())
+                    throw new java.util.NoSuchElementException();
+                return elems[current++];
+            &#125;
+            public void remove()&#123;
+                MyListclass.this.remove(--current);
+            &#125;
+        &#125;
+        return new iter();
+    &#125;
+    &#125;
 </code></pre>
-<p>}</p>
 
   </article>
 
@@ -376,7 +373,7 @@ public Iterator&lt;AnyType&gt; iterator()&#123;//内部类用来实现迭代器�
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1619854557801"></script>
+<script src="/js/app.js?v=1619854926620"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
