@@ -15,7 +15,6 @@ categories: 数据结构与算法
 注:所有代码都在Myarraylist包中，且为泛型
 ***
 <!--more-->
-<br/>
 MyList接口:
 ```java
 public interface MyList<T> {
@@ -127,4 +126,5 @@ public class MyListclass<AnyType>implements MyList<AnyType>,java.lang.Iterable<A
         }
         return new iter();
     }
-}
+    }
+```
