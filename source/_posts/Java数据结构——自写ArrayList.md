@@ -128,4 +128,3 @@ public class MyListclass<AnyType>implements MyList<AnyType>,java.lang.Iterable<A
         return new iter();
     }
 }
-```
