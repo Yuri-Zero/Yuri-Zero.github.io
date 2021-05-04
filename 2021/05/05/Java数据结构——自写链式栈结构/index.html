@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>我的第一篇文章 - Apocalypse</title>
+  <title>Java数据结构——自写链式栈结构 - Apocalypse</title>
   <meta charset="UTF-8">
   <meta name="description" content="只不过是鸽子王Yuri-Zero的个人博客">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,22 +12,23 @@
   
 
   <link rel="shortcut icon" href="/img/favicon.png" type="image/png" />
-  <meta name="description" content="这是我自己发布的第一篇博客文章，接下来我会使用这个博客文章记录我的学习&amp;编程生活，分享一些编程心得，和一些说唱乐hexo真棒">
+  <meta name="description" content="本来这篇文章应该是三号更新的，结果因为昨天搬运行李的时候电脑屏幕受损…心情不太好就没写代码，今天上午痛失一笔巨款换了块屏幕…Rest in place,我之前的老屏幕，我永远爱你呜呜呜这篇文章主要留作存档，是一篇数据结构——链表的代码文，这篇的数据结构为链式栈。参考书目:《数据结构与算法分析Java语言描述》本文包括一个链式栈类,它叫做LinkedStack,其内部又包括一个迭代器类MyLinke">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇文章">
-<meta property="og:url" content="http://www.yurizero.top/2021/03/23/testpage/index.html">
+<meta property="og:title" content="Java数据结构——自写链式栈结构">
+<meta property="og:url" content="http://www.yurizero.top/2021/05/05/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99%E9%93%BE%E5%BC%8F%E6%A0%88%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Apocalypse">
-<meta property="og:description" content="这是我自己发布的第一篇博客文章，接下来我会使用这个博客文章记录我的学习&amp;编程生活，分享一些编程心得，和一些说唱乐hexo真棒">
+<meta property="og:description" content="本来这篇文章应该是三号更新的，结果因为昨天搬运行李的时候电脑屏幕受损…心情不太好就没写代码，今天上午痛失一笔巨款换了块屏幕…Rest in place,我之前的老屏幕，我永远爱你呜呜呜这篇文章主要留作存档，是一篇数据结构——链表的代码文，这篇的数据结构为链式栈。参考书目:《数据结构与算法分析Java语言描述》本文包括一个链式栈类,它叫做LinkedStack,其内部又包括一个迭代器类MyLinke">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-03-23T05:17:14.000Z">
-<meta property="article:modified_time" content="2021-03-23T05:32:25.244Z">
+<meta property="article:published_time" content="2021-05-04T16:02:22.000Z">
+<meta property="article:modified_time" content="2021-05-04T16:17:18.200Z">
 <meta property="article:author" content="Yuri-Zero">
-<meta property="article:tag" content="杂物">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1620145080890">
+  <link rel="stylesheet" href="/css/style.css?v=1620145080883">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -178,16 +179,16 @@
     <div class="nexmoe-primary">
         <div class="nexmoe-post">
   
-      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="我的第一篇文章" class="lazyload">
-          <h1>我的第一篇文章</h1>
+      <div class="nexmoe-post-cover" style="padding-bottom: 56.25473843821076%;"> 
+          <img data-src="https://gitee.com/Zarathos/blog-image-library/raw/a92ae8d2203324f0ac96ad62bd6951c919dd7fc2/QQ%E5%9B%BE%E7%89%8720210505001220.jpg" data-sizes="auto" alt="Java数据结构——自写链式栈结构" class="lazyload">
+          <h1>Java数据结构——自写链式栈结构</h1>
       </div>
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2021年03月23日</a>
-    <a><i class="nexmoefont icon-areachart"></i>55 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年05月05日</a>
+    <a><i class="nexmoefont icon-areachart"></i>591 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -195,7 +196,162 @@
   </div>
 
   <article>
-    <p><em>这是我自己发布的第一篇博客文章，接下来我会使用这个博客文章记录我的学习&amp;编程生活，分享一些编程心得，和一些说唱乐</em><br></br><b>hexo真棒</p>
+    <p>本来这篇文章应该是三号更新的，结果因为昨天搬运行李的时候电脑屏幕受损…心情不太好就没写代码，今天上午痛失一笔巨款换了块屏幕…Rest in place,我之前的老屏幕，我永远爱你呜呜呜<br><br/>这篇文章主要留作存档，是一篇数据结构——链表的代码文，这篇的数据结构为链式栈。<br><br/><br/><font color="red">参考书目:《数据结构与算法分析Java语言描述》<br/>本文包括一个链式栈类,它叫做LinkedStack,其内部又包括一个迭代器类MyLinkedStackIteratorClass【btw,其实这个迭代器内部类是位于Iterator方法内的，所以实际是属于该方法的…】和一个节点类Node<br/>此栈结构为链式栈，支持入栈【push】<br>和出栈【pop】返回栈顶元素【get】等操作，以及支持迭代器操作和foreach</font><br><br/><br><br/>以下为代码</p>
+<hr>
+<span id="more"></span>
+<pre><code class="java">import java.util.EmptyStackException;
+import java.util.Iterator;
+
+/**
+ * 链表栈的主类
+ * @author Zarathos
+ * @date 2021/05/04
+ */
+public class LinkedStack&lt;Anytype&gt; implements Iterable&lt;Anytype&gt;&#123;
+    /**
+     * 内部节点类
+     * @author Zarathos
+     * @date 2021/05/04
+     * @param &lt;Anytype&gt;
+     */
+    private class Node&lt;Anytype&gt; &#123;
+        /**
+         * 数据域
+         */
+        Anytype data;
+        /**
+         * 节点
+         */
+        Node&lt;Anytype&gt; next;
+        Node(Anytype data,Node&lt;Anytype&gt;next)&#123;
+            this.data = data;
+            this.next = next;
+        &#125;
+    &#125;
+    private Node&lt;Anytype&gt; Head;
+    private Node&lt;Anytype&gt; Tail;
+    private int theSize;
+    private int modCount = 0;
+    /**
+     * 构造器
+     */
+    LinkedStack()&#123;doclear();&#125;
+
+    /**
+     * 清空栈
+     */
+    public void clear()&#123;doclear();&#125;
+
+    /**
+     * 用于清空或构造新栈
+     */
+    private void doclear()&#123;
+        Head = new Node&lt;Anytype&gt;(null,null);
+        Tail = new Node&lt;Anytype&gt;(null,null);
+        Head.next=Tail;
+        theSize=0;
+        modCount++;
+    &#125;
+
+    /**
+     * 入栈
+     * @param data 填入元素 类型为Anytype
+     */
+    public void push(Anytype data)&#123;
+        var p=new Node&lt;Anytype&gt;(data,null);
+        p.next=Head.next;
+        Head.next=p;
+        theSize++;
+        modCount++;
+    &#125;
+
+    /**
+     * 查找
+     * @return Anytype 栈顶元素
+     */
+    public Anytype get()&#123;
+        if(isEmpty())&#123;
+            throw new EmptyStackException();
+        &#125;
+        else&#123;
+            return Head.next.data;
+        &#125;
+    &#125;
+
+    /**
+     * 出栈
+     * @return 被删除的原栈顶的值
+     */
+    public Anytype pop()&#123;
+        if(isEmpty())&#123;
+            throw new EmptyStackException();
+        &#125;
+        var p=Head.next;
+        Anytype oldVal=p.data;
+        Head.next=p.next;
+        modCount++;
+        theSize--;
+        return oldVal;
+    &#125;
+    /**
+     * 返回元素个数
+     * @return int 当前元素个数
+     */
+    public int Size()&#123;return theSize;&#125;
+
+    /**
+     * 返回是否为空
+     * @return boolean true/false
+     */
+    public boolean isEmpty()&#123;return theSize&lt;0;&#125;
+
+    /**
+     * 迭代器
+     * @return Iterator&lt;Anytype&gt; 迭代器
+     */
+    @Override
+    public Iterator&lt;Anytype&gt; iterator()&#123;
+        /**
+         * 内部迭代器类
+         * @author Zarathos
+         * @date 2021/05/04
+         */
+        class MyLinkedStackIteratorClass implements Iterator&lt;Anytype&gt;&#123;
+            private Node&lt;Anytype&gt;current=Head.next;
+            private int expectedModCount=modCount;
+            private boolean okToRemove=false;
+            @Override
+            public boolean hasNext()&#123;return current!=Tail;&#125;
+            @Override
+            public Anytype next()&#123;
+                if(modCount!=expectedModCount)&#123;
+                    throw new java.util.ConcurrentModificationException();
+                &#125;
+                if(!hasNext())&#123;
+                    throw new java.util.NoSuchElementException();
+                &#125;
+                Anytype nextItem=current.data;
+                current=current.next;
+                okToRemove=true;
+                return  nextItem;
+            &#125;
+            @Override
+            public void remove()&#123;
+                if(modCount!=expectedModCount)&#123;
+                    throw new java.util.ConcurrentModificationException();
+                &#125;
+                if(!okToRemove)&#123;
+                    throw new IllegalStateException();
+                &#125;
+                LinkedStack.this.pop();
+                expectedModCount++;
+                okToRemove=false;
+            &#125;
+        &#125;
+        return new MyLinkedStackIteratorClass();
+    &#125;
+&#125;
+</code></pre>
 
   </article>
 
@@ -203,7 +359,7 @@
     
   <div class="nexmoe-post-copyright">
     <strong>Author：</strong>Yuri-Zero<br>
-    <strong>Link：</strong><a href="http://www.yurizero.top/2021/03/23/testpage/" title="http:&#x2F;&#x2F;www.yurizero.top&#x2F;2021&#x2F;03&#x2F;23&#x2F;testpage&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;www.yurizero.top&#x2F;2021&#x2F;03&#x2F;23&#x2F;testpage&#x2F;</a><br>
+    <strong>Link：</strong><a href="http://www.yurizero.top/2021/05/05/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99%E9%93%BE%E5%BC%8F%E6%A0%88%E7%BB%93%E6%9E%84/" title="http:&#x2F;&#x2F;www.yurizero.top&#x2F;2021&#x2F;05&#x2F;05&#x2F;Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99%E9%93%BE%E5%BC%8F%E6%A0%88%E7%BB%93%E6%9E%84&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;www.yurizero.top&#x2F;2021&#x2F;05&#x2F;05&#x2F;Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E8%87%AA%E5%86%99%E9%93%BE%E5%BC%8F%E6%A0%88%E7%BB%93%E6%9E%84&#x2F;</a><br>
     
       本文由Yuri-Zero发布
     
@@ -214,10 +370,10 @@
   
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%9D%82%E7%89%A9/">杂物</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E6%9D%82%E7%89%A9/" rel="tag">杂物</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Java/" rel="tag">Java</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a>
     
 </div>
 
@@ -257,7 +413,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1620145080890"></script>
+<script src="/js/app.js?v=1620145080883"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
